@@ -1,27 +1,30 @@
-import comidas.*
+import comidas.* // con esto le pido que levante las definiciones de comidas para poder usar en este archivo ".*" para que traiga todos las comidas, sino elijo cual
 
 /*
  * p.ej. pepita.comer(alpiste, 300) o pepita.comer(alcaucil, 50) 
  */
-object pepita {
-	var energia = 0
-	method energia() { return energia }
+object pepita { // es el objeto
+	var energia = 0 //var variable energia - inicio energia en 0, pero puedo variarla para optener resultados
+	method energia() { return energia } 
 	method comer(cosa, gramos) { energia += cosa.energiaPorGramo() * gramos }
 	method volar(kms) { energia -= kms + 10 }
 	
 	// metodos nuevos
-	method estaDebil() { return true }  // implementar
-	method estaFeliz() { return true }  // implementar
+	method estaDebil() { return energia<50}  // implementar
+	method estaFeliz() { return energia.between(500,1000)  }  // implementar - se agrego el "entre" para comparar
 	
-	method cuantoQuiereVolar() { 
-		var cuanto = self.energia() / 5
-		if (energia.between(300, 400)) { cuanto += 10 }
+	method cuantoQuiereVolar() {  // nombre del metodo
+		var cuanto = self.energia() / 5 // va al metodo energia - que devuelve energia - y lo divide en 5
+		if (energia.between(300, 400)) { cuanto += 10 } // si energia esta entre 300 y 400 se le suma 10
 		if (energia % 20 == 0) { cuanto += 15 }
 		return cuanto
 	}
 	
-	method salirAComer() {
+	method salirAComer() { //nombre del metodo
 		self.volar(5)		// "self" es una referencia al objeto que recibe el mensaje
+		self.comer(alpiste,80)
+		self.volar(5)
+		return energia
 		// ... completar este metodo con las otra acciones sobre self
 	}
 	
