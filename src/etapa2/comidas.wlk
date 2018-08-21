@@ -1,4 +1,9 @@
 
+object papota {
+	method energiaPorGramo() { return 1500} 
+}
+
+
 object alpiste {
 	method energiaPorGramo() { return 4 }
 }
@@ -28,7 +33,7 @@ object sorgo {
 	// completar
 }
 
-object mijo {
+object mijo { 						// verificar esto
 	var estaSeco = true
 	method mojarse(){
 		 estaSeco = false
@@ -37,15 +42,24 @@ object mijo {
 		estaSeco = true
 	}
 	method energiaPorGramo(){
-	if (estaSeco) 
-	{return 20} 
-	else 
-	{return 15}
+	if (estaSeco) 	{return 20} 
+	else 			{return 15}
  }
 
 }
+/*
+object canelones { // incompleto 
 
-object canelones {
+	
+	method energiaPorGramo() {
+		if sinNada() {return 20}
+		if tieneSalsa() {return 25}
+		if tieneQueso() {return 27
+		if tieneSalsaYQueso() {return 32}	
+		}
+	
+	
+
 	var salsa = false
 	var queso = false
 	//var canelon = 20
@@ -61,7 +75,11 @@ object canelones {
 		if (salsa) if (queso) {return 32} 
 		else {return 25} 
 		
+	
 		
 	}
-}  
+	 
 // despues, agregar mijo y canelones
+
+*/
+

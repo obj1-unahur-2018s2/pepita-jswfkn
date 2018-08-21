@@ -3,21 +3,23 @@ import comidas.* // con esto le pido que levante las definiciones de comidas par
 /*
  * p.ej. pepita.comer(alpiste, 300) o pepita.comer(alcaucil, 50) 
  */
-object pepita { // es el objeto
-	var energia = 0 //var variable energia - inicio energia en 0, pero puedo variarla para optener resultados
+object pepita {                // es el objeto
+	var energia = 0                                           //var variable energia - inicio energia en 0, pero puedo variarla para optener resultados
 	method energia() { return energia } 
 	method comer(cosa, gramos) { energia += cosa.energiaPorGramo() * gramos }
-	method volar(kms) { energia -= kms + 10 }
+	method papota(gramos) { energia += papota.energiaPorGramo()* gramos }
+	method volar(kms) { energia -= kms + 10 }                 //energia -= kms + 10
 	
 	// metodos nuevos
-	method estaDebil() { return energia<50}  // implementar
+	method estaDebil() { return energia<50}                   // implementar
 	method estaFeliz() { return energia.between(500,1000)  }  // implementar - se agrego el "entre" para comparar
+	method estaFalopa() { return energia>1000}
 	
-	method cuantoQuiereVolar() {  // nombre del metodo
-		var cuanto = self.energia() / 5 // va al metodo energia - que devuelve energia - y lo divide en 5
-		if (energia.between(300, 400)) { cuanto += 10 } // si energia esta entre 300 y 400 se le suma 10
-		if (energia % 20 == 0) { cuanto += 15 }
-		return cuanto
+	method cuantoQuiereVolar() {                              // nombre del metodo
+		var cuanto = self.energia() / 5                       // self hace referencia a pepita, al mismo objeto en este caso va al metodo energia - que devuelve energia - y lo divide en 5 guardandolo en la variable cuanto
+		if (energia.between(300, 400)) { cuanto += 10 }       // si energia esta entre 300 y 400 se le suma 10
+		if (energia % 20 == 0) { cuanto += 15 }				 // == se usa para comparar
+		return cuanto										 // devuelve el valo de cuanto
 	}
 	
 	method salirAComer() { //nombre del metodo
